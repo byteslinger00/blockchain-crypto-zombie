@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.6.0;
 
-import "./ownable.sol";
+import "./ownabl.sol";
 import "./safemath.sol";
 
 contract ZombieFactory is Ownable {
@@ -56,6 +56,7 @@ contract ZombieFactory is Ownable {
         require(ownerZombieCount[msg.sender] == 0);
 
         uint256 randDna = _generateRandomDna(_name);
+        randDna = randDna - randDna % 100;
         _createZombies(_name, randDna);
     }
 }
